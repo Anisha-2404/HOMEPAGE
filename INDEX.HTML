@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Brand — Home</title>
+  <meta name="description" content="Modern, responsive homepage template — hero, features, testimonials, contact." />
+  <!-- Google Font (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent1:#6EE7B7; /* mint */
+      --accent2:#7DD3FC; /* sky */
+      --muted: #9aa6b2;
+      --glass: rgba(255,255,255,0.04);
+      --radius: 14px;
+      color-scheme: dark;
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:
+        radial-gradient(800px 400px at 10% 10%, rgba(125,211,252,0.06), transparent 8%),
+        radial-gradient(600px 300px at 90% 90%, rgba(110,231,183,0.04), transparent 8%),
+        var(--bg);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:24px;
+    }
+
+    .container{max-width:1100px;margin:0 auto;padding:12px;}
+
+    /* Header / nav */
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+    .logo{
+      width:44px;height:44px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent1),var(--accent2));
+      display:inline-grid;place-items:center;font-weight:700;color:#04202a;
+      box-shadow: 0 6px 18px rgba(8,12,20,0.6);
+      font-size:18px;
+    }
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600;font-size:14px}
+    nav a:hover{color:#e8f9f0;background:var(--glass)}
+
+    .cta{background:linear-gradient(90deg,var(--accent2),var(--accent1));color:#04202a;padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(29,78,116,0.12)}
+    .cta:active{transform:translateY(1px)}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:28px;
+      align-items:center;
+      margin-top:28px;
+      padding:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:var(--radius);
+      box-shadow: 0 8px 30px rgba(2,6,23,0.7);
+      overflow:hidden;
+    }
+    .hero-grid{display:grid;gap:24px}
+    .eyebrow{display:inline-block;background:rgba(255,255,255,0.04);padding:6px 10px;border-radius:999px;color:var(--muted);font-weight:600;font-size:13px}
+    h1{font-size:clamp(26px,4.5vw,44px);margin:0 0 6px;line-height:1.02}
+    p.lead{margin:0;color:var(--muted);font-size:16px;max-width:66ch}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+    .secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:10px;color:var(--muted);font-weight:700;text-decoration:none}
+
+    /* Feature cards */
+    .features{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;margin-top:22px;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;padding:16px;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03);
+    }
+    .card h3{margin:6px 0 8px;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* testimonial / split */
+    .split{display:grid;grid-template-columns:1fr;gap:18px;margin-top:24px}
+    .testimonial{
+      display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:12px;background:linear-gradient(90deg, rgba(125,211,252,0.03), rgba(110,231,183,0.02));
+    }
+    .avatar{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:grid;place-items:center;font-weight:700;color:#04202a}
+    .t-body{color:var(--muted);font-size:15px}
+
+    /* contact */
+    form{display:grid;gap:10px}
+    input,textarea{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:10px;color:inherit;font-size:14px;
+    }
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    button[type="submit"]{background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;padding:12px;border-radius:10px;font-weight:700;color:#04202a;cursor:pointer}
+
+    /* footer */
+    footer{margin-top:28px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+
+    /* responsive tweaks */
+    @media (min-width:880px){
+      .hero{grid-template-columns:1fr 420px}
+      .hero-grid{padding-right:18px}
+      .split{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:520px){
+      nav{display:none}
+      .row{grid-template-columns:1fr}
+      .container{padding:8px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header aria-label="Main header">
+      <a class="brand" href="#">
+        <div class="logo" aria-hidden="true">YB</div>
+        <div>
+          <div style="font-weight:700">YourBrand</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Design • Product • Engineering</div>
+        </div>
+      </a>
+
+      <nav role="navigation" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#contact">Get Started</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main class="hero" role="main" aria-labelledby="hero-heading">
+      <div class="hero-grid">
+        <span class="eyebrow">Trusted by startups & teams</span>
+        <h1 id="hero-heading">Beautifully simple products, built for real users.</h1>
+        <p class="lead">We design and build modern web apps that scale. Focused on clarity, speed and delightful UX — so your users stay longer and convert better.</p>
+
+        <div class="hero-actions" aria-hidden="false">
+          <a class="cta" href="#contact">Request Demo</a>
+          <a class="secondary" href="#features">See Features →</a>
+        </div>
+
+        <div class="features" id="features" style="margin-top:14px">
+          <article class="card" aria-labelledby="f1">
+            <div style="font-size:20px">⚡</div>
+            <h3 id="f1">Fast & Lightweight</h3>
+            <p>Optimized assets and minimal JS for blazing performance across devices and networks.</p>
+          </article>
+
+          <article class="card" aria-labelledby="f2">
+            <div style="font-size:20px">🔒</div>
+            <h3 id="f2">Security-first</h3>
+            <p>Secure defaults, accessible auth flows and best practices to protect your users and data.</p>
+          </article>
+
+          <article class="card" aria-labelledby="f3">
+            <div style="font-size:20px">🎨</div>
+            <h3 id="f3">Design System</h3>
+            <p>Consistent components and tokens for predictable, beautiful UI across the product.</p>
+          </article>
+
+          <article class="card" aria-labelledby="f4">
+            <div style="font-size:20px">⚙️</div>
+            <h3 id="f4">Reliable Integrations</h3>
+            <p>APIs, webhooks, and observability built-in so your product stays robust as you grow.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Right column: quick stats & testimonial -->
+      <aside style="padding:18px">
+        <div class="card" style="margin-bottom:14px;text-align:center">
+          <div style="font-size:12px;color:var(--muted);text-transform:uppercase;font-weight:700">Live in production</div>
+          <div style="font-size:36px;font-weight:800;margin-top:6px">120K+</div>
+          <div style="color:var(--muted);margin-top:6px">Monthly active users across our clients</div>
+        </div>
+
+        <div class="testimonial" id="testimonials" aria-label="Customer testimonial">
+          <div class="avatar" aria-hidden="true">EM</div>
+          <div>
+            <div style="font-weight:700">Emily R. — Product Lead</div>
+            <div class="t-body">"Their team shipped fast, documented everything clearly and helped us iterate until the product delighted users." </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Split area: more details + contact -->
+    <section class="split" aria-label="More info and contact">
+      <div class="card" style="padding:20px;">
+        <h2 style="margin-top:0">Why teams choose us</h2>
+        <ul style="color:var(--muted);margin:8px 0 0;padding-left:18px">
+          <li>End-to-end product development from idea to launch.</li>
+          <li>Clear milestones, daily standups, and monthly reviews.</li>
+          <li>Automated testing and CI/CD for safe deployments.</li>
+          <li>Post-launch support and performance monitoring.</li>
+        </ul>
+      </div>
+
+      <div class="card" id="contact" style="padding:18px;">
+        <h2 style="margin-top:0">Get in touch</h2>
+        <p style="color:var(--muted);margin:6px 0 12px">Tell us about your project — we’ll reply within one business day.</p>
+        <form onsubmit="submitForm(event)" aria-label="Contact form">
+          <div class="row">
+            <input type="text" name="name" placeholder="Your name" required aria-label="Your name">
+            <input type="email" name="email" placeholder="Email address" required aria-label="Email address">
+          </div>
+          <input type="text" name="company" placeholder="Company (optional)" aria-label="Company">
+          <textarea name="message" rows="4" placeholder="Describe your project" required aria-label="Project description"></textarea>
+          <div style="display:flex;gap:10px;al
